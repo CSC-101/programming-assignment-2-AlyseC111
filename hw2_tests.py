@@ -70,6 +70,11 @@ class TestCases(unittest.TestCase):
         expected = False
         actual = hw2.validate_route([['san luis obispo', 'santa margarita'],['san luis obispo', 'pismo beach'],['atascadero', 'santa margarita'],['atascadero', 'creston']], input)
         self.assertEqual(expected, actual)
+    def test_validate_route_3(self):
+        input = ['san luis obispo', 'santa margarita', 'atascadero']
+        expected = False
+        actual = hw2.validate_route([['san luis obispo', 'santa margarita'],['san luis obispo', 'pismo beach'],['atascadero', 'creston']], input)
+        self.assertEqual(expected, actual)
     # Part 6
     def test_longest_repetition_1(self):
         input = [1, 1, 2, 2, 1, 1, 1, 3]

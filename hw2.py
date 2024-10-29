@@ -63,13 +63,16 @@ def running_time(songs: list[Song], nums: list[int]) -> Duration:
 # A route is valid when there is a link (as dictated by the first argument to the function)
 # between consecutive cities in the list.
 def validate_route(routes: list[list[str]], input: list[str]):
+    count = 0
     for i in range(len(input) - 1):
         city1 = input[i]
         city2 = input[i + 1]
-        if [city1, city2] not in routes and [city2, city2] not in routes:
-            return False
-        else:
-            return True
+        if [city1, city2] in routes or [city2, city1] in routes:
+            count += 1
+    if count == len(input) - 1:
+        return True
+    else:
+        return False
 # Part 6
 #This function takes one parameter of type list[int] returns an output of type Optional[int].
 # This function must return the index at which the longest contiguous repetition begins, or None
